@@ -7,7 +7,7 @@ import java.util.List;
 public class Tour {
     private String name;
     private List<Location> locations;
-    private Location[] locationSequence;
+    private List<Location> locationSequence;
 
     public Tour(String name, List<Location> locations){
         this.name = name;
@@ -17,7 +17,7 @@ public class Tour {
         }
     }
 
-    public String calculateSequence(){
+    public List<Location> calculateSequence(){
         return null;
     }
 }
