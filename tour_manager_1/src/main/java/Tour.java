@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by leviathan on 2017.03.20..
  */
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tour {
     private String name;
     private List<Location> locations;
@@ -13,11 +14,27 @@ public class Tour {
         this.name = name;
         this.locations = new ArrayList<Location>();
         for (Location location: locations){
-            locations.add(location);
+            this.locations.add(location);
         }
     }
 
+    //method that creates the logically ordered list from the locations
     public List<Location> calculateSequence(){
-        return null;
+        locationSequence = new ArrayList<Location>();
+        for (Location location: locations){
+            addToSequence(location);
+            if (locationSequence.size() == locations.size()) { break; }
+        }
+        return locationSequence;
+    }
+
+    // recursive method for adding the dependencies if needed
+    private void addToSequence(Location location){
+        if (locationSequence.contains(location)) { return; }
+        Location dependency = location.getCloserLocation();
+        if (dependency != null && locations.contains(dependency)){
+            addToSequence(dependency);
+        }
+        locationSequence.add(location);
     }
 }

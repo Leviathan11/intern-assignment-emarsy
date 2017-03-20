@@ -12,15 +12,6 @@ import static org.junit.Assert.*;
 public class LogicTest {
     private Tour testTour;
 
-    @Before
-    public void setup(){
-        Location x = new Location("X");
-        Location y = new Location("Y", x);
-        Location u = new Location("U");
-        Location z = new Location("Z", u);
-        testTour = new Tour("Super Test Tour", Arrays.asList(x, y, z, u));
-    }
-
     @Test
     public void exampleTest1(){
         Location x = new Location("X");
