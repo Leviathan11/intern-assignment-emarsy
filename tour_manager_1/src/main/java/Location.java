@@ -13,4 +13,12 @@ public class Location {
         this.name = name;
         this.closerLocation = closerLocation;
     }
+
+    public Location getCloserLocation(){
+        return closerLocation;
+    }
+
+    public String getName(){
+        return name;
+    }
 }
